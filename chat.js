@@ -75,7 +75,7 @@ async function getMessages() {
 
     // Hora del mensaje
     let time = document.createElement('p');
-    time.innerText = obtenerHoraFormateada(new Date(item.created_at));
+    time.innerText = getFormatHour(new Date(item.created_at));
     time.style.margin = '0px';
     time.style.fontSize = '14px';
     time.style.color = '#808B96';
@@ -186,7 +186,7 @@ const sendMessage = async (messageToSend) => {
   // getMessages();
 };
 
-function obtenerHoraFormateada(fecha) {
+function getFormatHour(fecha) {
   var horas = fecha.getHours();
   var minutos = fecha.getMinutes();
   var ampm = horas >= 12 ? 'PM' : 'AM';
@@ -196,10 +196,3 @@ function obtenerHoraFormateada(fecha) {
   var horaFormateada = horas + ':' + minutos + ' ' + ampm;
   return horaFormateada;
 }
-
-const isLink = () => {
-  var regex = /(https?:\/\/[^\s]+)/g;
-  var enlaces = texto.match(regex);
-
-  return enlaces;
-};
