@@ -191,7 +191,6 @@ function getFormatHour(fecha) {
   var minutos = fecha.getMinutes();
   var ampm = horas >= 12 ? 'PM' : 'AM';
   horas = horas % 12;
-  horas = horas ? horas : 12; // Si horas es 0, entonces es medianoche (12 AM)
   minutos = minutos < 10 ? '0' + minutos : minutos;
   var horaFormateada = horas + ':' + minutos + ' ' + ampm;
   return horaFormateada;
