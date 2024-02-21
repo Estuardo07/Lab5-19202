@@ -1,11 +1,11 @@
-const MY_USERNAME = 'Javier';
-const ENDPOINT = 'https://chat.arpanetos.lol/messages';
+const USERNAME = 'Javier';
+const URL = 'https://chat.arpanetos.lol/messages';
 let messageToSend = '';
 
 async function getMessages() {
   let messages = [];
 
-  const response = await fetch(ENDPOINT);
+  const response = await fetch(URL);
   messages = await response.json();
   messages = messages.reverse();
   console.log('messages: ', messages);
@@ -81,7 +81,7 @@ async function getMessages() {
     time.style.color = '#808B96';
 
     let username = document.createElement('p');
-    username.innerText = item.username === MY_USERNAME ? 'Yo' : item.username;
+    username.innerText = item.username === USERNAME ? 'Yo' : item.username;
     username.style.margin = '0px';
     username.style.color = '#000000';
 
@@ -157,7 +157,7 @@ async function getMessages() {
 getMessages();
 
 const getMessageStyle = (message) => {
-  if (message.username === MY_USERNAME) {
+  if (message.username === USERNAME) {
     return {
       backgroundColor: '#299CF2',
       borderRadius: '4px 0px 4px 4px',
@@ -172,12 +172,12 @@ const getMessageStyle = (message) => {
 };
 
 const sendMessage = async (messageToSend) => {
-  await fetch(ENDPOINT, {
+  await fetch(URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ username: MY_USERNAME, message: messageToSend }),
+    body: JSON.stringify({ username: USERNAME, message: messageToSend }),
   });
 
   let chatsContent = document.getElementById('chatsContent');
