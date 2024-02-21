@@ -191,6 +191,7 @@ function getFormatHour(fecha) {
   var minutos = fecha.getMinutes();
   var ampm = horas >= 12 ? 'PM' : 'AM';
   horas = horas % 12;
+  horas = horas ? horas : 12;
   minutos = minutos < 10 ? '0' + minutos : minutos;
   var horaFormateada = horas + ':' + minutos + ' ' + ampm;
   return horaFormateada;
